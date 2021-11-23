@@ -1,6 +1,6 @@
 <template>
   <div class="nihao">
-      来了，老弟！111111111111
+      来了，老弟！
   </div>
 </template>
 
