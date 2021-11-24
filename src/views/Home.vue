@@ -91,6 +91,7 @@
               //dispatch的Store里index.js配置的user路径下的login
               .dispatch("user/login", this.loginForm)
               .then(() => {
+                this.$store.dispatch("user/getInfo")
                 setTimeout(()=>{
                  this.loading = false;
                  this.$router.push({ path: this.redirect || "/index" });

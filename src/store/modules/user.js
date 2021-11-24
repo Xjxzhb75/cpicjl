@@ -38,9 +38,9 @@ const actions = {
 
     getInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-        getUserInfo()
-          .then((response) => {
-            const { data } = response;
+        getUserInfo().then((response) => {
+            const { data } = response
+            console.log(data)
             if (!data) {
               commit("SET_TOKEN_STATE", "");
               commit("SET_USER_STATE", "");
