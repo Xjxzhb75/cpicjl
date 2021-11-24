@@ -11,6 +11,7 @@
 
           <el-form
             :model="loginForm"
+            v-loading="loading"
             ref="loginForm"
             label-width="100px"
             :rules="loginRules"
@@ -81,7 +82,6 @@
     },
     methods: {
       onlgin(formName) {
-       
         this.$refs[formName].validate((valid) => {
           
           if (valid) {
@@ -92,7 +92,7 @@
               .dispatch("user/login", this.loginForm)
               .then(() => {
 
-                 //this.$store.dispatch("user/getinfo")
+                 this.$store.dispatch("user/getinfo")
                 
                 setTimeout(()=>{
                  this.loading = false;
