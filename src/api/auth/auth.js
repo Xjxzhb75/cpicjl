@@ -17,3 +17,9 @@ export function getUserInfo() {
       method: 'get'
     })
   }
+
+  export function logout() {
+    return request({
+      url: '/user/logout'
+    })
+  }

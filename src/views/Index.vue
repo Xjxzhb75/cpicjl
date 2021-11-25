@@ -8,7 +8,7 @@
     </div>
 
     <div class="upLogin">
-      <el-popconfirm title="确定要退出登录吗？"  @confirm="outLogin">
+      <el-popconfirm title="确定要退出登录吗？"  @confirm="logout">
       <el-button type="danger" slot="reference">退出登录</el-button> 
       </el-popconfirm> 
     </div>
@@ -16,8 +16,8 @@
   <el-container>
 
     <el-aside :width="isCollapse ? '64px':'150px'">
-      <el-tooltip  effect="dark" content="Right Center 提示文字" placement="right">
-      <div class="fold">
+      <el-tooltip  effect="dark" :content="isCollapse ? '展开':'折叠'" placement="right">
+      <div class="fold" @click=clickFold>
         <i class="el-icon-d-arrow-left" v-show="!isCollapse"></i>
         <i class="el-icon-d-arrow-right" v-show="isCollapse"></i>
       </div>
@@ -26,7 +26,7 @@
         active-text-color="#85A5FF"
         text-color="rgba(0, 0, 0, 0.7)"
         :collapse="isCollapse"
-        router 
+        :collapse-transition="collspseFlash"
         >
       <el-menu-item index="1">
         <i class="el-icon-edit"></i>
@@ -55,13 +55,28 @@ export default {
    name:'Index',
     data(){
             return {
-            isCollapse:false
+            isCollapse:false,
+            collspseFlash:false
             }
           },
    computed:{
      ...mapGetters([
        'token','user'
      ])
+   },
+   methods:{
+     clickFold(){
+        this.isCollapse=!this.isCollapse
+     },
+     async logout(){
+       this.$store.dispatch('user/logout').then(()=> {
+         this.$message.info('退出登录成功')
+         setTimeout(()=>{
+            this.$router.push({ path: this.redirect || '/' })
+          
+         },500)
+       })
+     }
    }
 }
 </script>
