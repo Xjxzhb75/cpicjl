@@ -8,11 +8,13 @@ const routes = [
     path: '/',
     name: 'Home',
     component: () => import('@/views/Home'),  
+    meta: { title: "登录" },
   },
   {
     path: '/index',
     name: 'Index',
-    component: () => import('@/views/Index'),  
+    component: () => import('@/views/Index'), 
+    meta: { title: "主页",requireAuth: true }, 
   },
   {
     path: "/404",

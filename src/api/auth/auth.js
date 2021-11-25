@@ -11,9 +11,9 @@ export function login(data){
     })
 }
 //
-export function getUserInfo(){
+export function getUserInfo() {
     return request({
-        url:'/user/info',
-        method:'get'
+      url: '/user/info',
+      method: 'get'
     })
-}
+  }

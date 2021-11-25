@@ -1,4 +1,5 @@
-import {  login } from "@/api/auth/auth"
+//用之前必须引入进来，要不无法使用，切记！往往忽略，使用前一定先引入！
+import {  login,getUserInfo } from "@/api/auth/auth"
 import { getToken, setToken} from "@/utils/auth"
 //定义全局数据，一个是Tonken，一个user对象
 const state={
@@ -39,8 +40,9 @@ const actions = {
     getInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
         getUserInfo().then((response) => {
+            console.log(response)
             const { data } = response
-            console.log(data)
+            
             if (!data) {
               commit("SET_TOKEN_STATE", "");
               commit("SET_USER_STATE", "");

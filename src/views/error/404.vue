@@ -35,7 +35,7 @@ export default {
         this.times--
         if (this.times === 0) {
           clearInterval(this.timer)
-          this.$router.push({path: '/'});
+          this.$router.push({path: '/index'});
         }
       }, 1000)
     }
@@ -45,6 +45,8 @@ export default {
 
 <style lang="less" scoped>
    .error404{
+     margin: 0;
+     padding: 0;
      background: #f8f8f8f8;
      height:100%;
      position: relative;
