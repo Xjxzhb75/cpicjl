@@ -14,7 +14,26 @@ const routes = [
     path: '/index',
     name: 'Index',
     component: () => import('@/views/Index'), 
-    meta: { title: "主页",requireAuth: true }, 
+    meta: { title: "主页",requireAuth: true },
+    redirect:"/exupdata", 
+    children:[
+      {
+      path:'/exupdata',
+      name:'Exupdata',
+      component:()=>import('@/views/exupdata/Exupdata'),
+      meta: { title: "数据上传",requireAuth: true },
+      },
+      {path:'/databrows',
+      name:'Databrows',
+      component:()=>import('@/views/databrows/Databrows'),
+      meta: { title: "数据浏览",requireAuth: true },
+      },
+      {path:'/usersetup',
+      name:'Usersetup',
+      component:()=>import('@/views/usersetup/Usersetup'),
+      meta: { title: "用户设置",requireAuth: true },
+      }
+    ]
   },
   {
     path: "/404",

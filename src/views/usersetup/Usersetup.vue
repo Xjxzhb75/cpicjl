@@ -1,5 +1,5 @@
 <template>
-  <div class="exupdata"></div>
+  <div class="usersetup">用户设置</div>
 </template>
 
 <script>

@@ -8,6 +8,7 @@
     </div>
 
     <div class="upLogin">
+      <a>欢迎：</a> <span>{{user.name}}</span>
       <el-popconfirm title="确定要退出登录吗？"  @confirm="logout">
       <el-button type="danger" slot="reference">退出登录</el-button> 
       </el-popconfirm> 
@@ -27,25 +28,28 @@
         text-color="rgba(0, 0, 0, 0.7)"
         :collapse="isCollapse"
         :collapse-transition="collspseFlash"
+        router
         >
-      <el-menu-item index="1">
+      <el-menu-item index="/exupdata">
         <i class="el-icon-edit"></i>
         <span slot="title">报表上传</span>
       </el-menu-item>
 
-         <el-menu-item index="2">
+         <el-menu-item index="/databrows">
         <i class="el-icon-data-analysis"></i>
         <span slot="title">数据浏览</span>
       </el-menu-item>
 
-        <el-menu-item index="3">
+        <el-menu-item index="/usersetup">
         <i class="el-icon-setting"></i>
         <span slot="title">账号管理</span>
       </el-menu-item>
         
      </el-menu>
     </el-aside>
-    <el-main>Main</el-main>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
   </el-container>
 </el-container></div>
 </template>
@@ -103,6 +107,18 @@ export default {
       padding-left:20px;
       }
     }
+    .upLogin{
+      span{
+        font-size: 15px;
+        color:rgb(3, 52, 92);
+        padding-right: 40px;
+      }
+      a{
+        font-size: 14px;
+      }
+
+    }
+
 }
 .el-aside{
     background:#dde4ee;
